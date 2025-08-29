@@ -1,0 +1,108 @@
+/* Posts Grid & Search Widgets Admin Styles */
+
+.pgs-widget-form {
+    padding: 10px 0;
+}
+
+.pgs-widget-form h4 {
+    margin: 20px 0 10px 0;
+    padding: 10px 0 5px 0;
+    border-bottom: 1px solid #ddd;
+    color: #23282d;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pgs-widget-form p {
+    margin: 10px 0;
+}
+
+.pgs-widget-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #23282d;
+}
+
+.pgs-widget-form input[type="text"],
+.pgs-widget-form input[type="number"],
+.pgs-widget-form input[type="color"],
+.pgs-widget-form select,
+.pgs-widget-form textarea {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.pgs-widget-form input[type="text"]:focus,
+.pgs-widget-form input[type="number"]:focus,
+.pgs-widget-form input[type="color"]:focus,
+.pgs-widget-form select:focus,
+.pgs-widget-form textarea:focus {
+    border-color: #0073aa;
+    box-shadow: 0 0 0 1px #0073aa;
+    outline: none;
+}
+
+.pgs-widget-form input[type="color"] {
+    height: 35px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.pgs-widget-form input[type="checkbox"] {
+    margin-right: 6px;
+}
+
+.pgs-widget-form small {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+    font-size: 11px;
+    font-style: italic;
+}
+
+/* Color picker enhancements */
+.pgs-color-picker-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pgs-color-preview {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Settings sections */
+.pgs-settings-section {
+    background: #f9f9f9;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 4px;
+    border-left: 4px solid #0073aa;
+}
+
+.pgs-settings-section h4 {
+    margin-top: 0;
+    color: #0073aa;
+    border: none;
+    padding: 0;
+}
+
+/* Responsive settings */
+@media (max-width: 782px) {
+    .pgs-widget-form input[type="text"],
+    .pgs-widget-form input[type="number"],
+    .pgs-widget-form select {
+        font-size: 16px;
+        padding: 8px 10px;
+    }
+}
