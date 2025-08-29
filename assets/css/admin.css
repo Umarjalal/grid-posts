@@ -4,6 +4,69 @@
     padding: 10px 0;
 }
 
+/* Widget Tabs Styling */
+.pgs-widget-tabs {
+    margin: 15px 0;
+}
+
+.pgs-tab-nav {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+.pgs-tab-btn {
+    background: #f1f1f1;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+    transition: all 0.3s ease;
+    border-radius: 4px 4px 0 0;
+    margin-right: 2px;
+}
+
+.pgs-tab-btn:hover {
+    background: #e8e8e8;
+    color: #333;
+}
+
+.pgs-tab-btn.pgs-tab-active {
+    background: #fff;
+    color: #0073aa;
+    border-color: #0073aa;
+    position: relative;
+    z-index: 2;
+}
+
+.pgs-tab-btn.pgs-tab-active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #fff;
+}
+
+.pgs-tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.pgs-tab-content.pgs-tab-active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Form Elements */
 .pgs-widget-form h4 {
     margin: 20px 0 10px 0;
     padding: 10px 0 5px 0;
@@ -29,18 +92,21 @@
 .pgs-widget-form input[type="text"],
 .pgs-widget-form input[type="number"],
 .pgs-widget-form input[type="color"],
+.pgs-widget-form input[type="date"],
 .pgs-widget-form select,
 .pgs-widget-form textarea {
     width: 100%;
-    padding: 6px 8px;
+    padding: 8px 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 13px;
+    transition: all 0.3s ease;
 }
 
 .pgs-widget-form input[type="text"]:focus,
 .pgs-widget-form input[type="number"]:focus,
 .pgs-widget-form input[type="color"]:focus,
+.pgs-widget-form input[type="date"]:focus,
 .pgs-widget-form select:focus,
 .pgs-widget-form textarea:focus {
     border-color: #0073aa;
@@ -49,13 +115,14 @@
 }
 
 .pgs-widget-form input[type="color"] {
-    height: 35px;
-    padding: 2px;
+    height: 40px;
+    padding: 4px;
     cursor: pointer;
 }
 
 .pgs-widget-form input[type="checkbox"] {
-    margin-right: 6px;
+    margin-right: 8px;
+    transform: scale(1.1);
 }
 
 .pgs-widget-form small {
@@ -64,6 +131,7 @@
     color: #666;
     font-size: 11px;
     font-style: italic;
+    line-height: 1.4;
 }
 
 /* Color picker enhancements */
@@ -79,6 +147,11 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.pgs-color-preview:hover {
+    transform: scale(1.1);
 }
 
 /* Settings sections */
@@ -86,8 +159,9 @@
     background: #f9f9f9;
     padding: 15px;
     margin: 15px 0;
-    border-radius: 4px;
+    border-radius: 6px;
     border-left: 4px solid #0073aa;
+    position: relative;
 }
 
 .pgs-settings-section h4 {
@@ -95,14 +169,173 @@
     color: #0073aa;
     border: none;
     padding: 0;
+    font-size: 14px;
 }
 
-/* Responsive settings */
+.pgs-settings-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid #0073aa;
+    border-bottom: 15px solid transparent;
+}
+
+/* Professional styling enhancements */
+.pgs-widget-form optgroup {
+    font-weight: 600;
+    color: #0073aa;
+    background: #f8f9fa;
+}
+
+.pgs-widget-form option {
+    padding: 5px;
+    font-weight: normal;
+    color: #333;
+}
+
+/* Loading states */
+.pgs-widget-form.pgs-saving {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.pgs-widget-form.pgs-saving::after {
+    content: 'Saving...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 115, 170, 0.9);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 1000;
+}
+
+/* Help tooltips */
+.pgs-help-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: #666;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 11px;
+    line-height: 16px;
+    cursor: help;
+    margin-left: 6px;
+    transition: all 0.3s ease;
+}
+
+.pgs-help-icon:hover {
+    background: #0073aa;
+    transform: scale(1.1);
+}
+
+/* Professional form styling */
+.pgs-widget-form .widefat {
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.07);
+}
+
+.pgs-widget-form .widefat:focus {
+    box-shadow: 0 0 0 1px #0073aa, inset 0 1px 2px rgba(0, 0, 0, 0.07);
+}
+
+/* Responsive design */
 @media (max-width: 782px) {
     .pgs-widget-form input[type="text"],
     .pgs-widget-form input[type="number"],
     .pgs-widget-form select {
         font-size: 16px;
-        padding: 8px 10px;
+        padding: 10px 12px;
     }
+    
+    .pgs-tab-nav {
+        flex-direction: column;
+    }
+    
+    .pgs-tab-btn {
+        margin-right: 0;
+        margin-bottom: 2px;
+        border-radius: 4px;
+    }
+    
+    .pgs-settings-section {
+        padding: 12px;
+    }
+}
+
+/* Advanced styling for professional look */
+.pgs-widget-form {
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.pgs-widget-form::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #0073aa, #00a0d2);
+    border-radius: 8px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pgs-widget-form:hover::before {
+    opacity: 0.1;
+}
+
+/* Enhanced select styling */
+.pgs-widget-form select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 35px;
+    appearance: none;
+}
+
+/* Professional checkbox styling */
+.pgs-widget-form input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ddd;
+    border-radius: 3px;
+    background: #fff;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pgs-widget-form input[type="checkbox"]:checked {
+    background: #0073aa;
+    border-color: #0073aa;
+}
+
+.pgs-widget-form input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.pgs-widget-form input[type="checkbox"]:hover {
+    border-color: #0073aa;
+    box-shadow: 0 0 0 2px rgba(0, 115, 170, 0.1);
 }
